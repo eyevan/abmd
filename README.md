@@ -24,5 +24,5 @@ You can also install ABMD with **NPM**
 ```
 npm install abmd
 ```
-And don't forget to include the JS file!
+And don't forget to include the CSS file!
  
