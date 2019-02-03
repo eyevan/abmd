@@ -1,6 +1,6 @@
 {
   "name": "abmd",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "\"All Buttons Must Die\" is a small buttons library",
   "main": "index.js",
   "scripts": {
