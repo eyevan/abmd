@@ -1,0 +1,691 @@
+/*
+*
+* * * This is the master file
+*
+*/
+
+@import "variables";
+@import "global";
+
+button, a {
+  text-decoration: none;
+  // Hover effects
+  &:hover, &:focus, &:active {
+    text-decoration: none;
+    box-shadow: none;
+    outline: none;
+    background-color: $gray-3;
+    outline: none;
+  }
+}
+
+// Default button
+.abmd-standard {
+  font-weight: 500;
+  font-size: 16px;
+  color: $primary-text-color;
+  border: none;
+  background-color: $gray-2;
+  padding: 10px 18px;
+  cursor: pointer;
+  @include transition(250ms, ease);
+
+  // Type
+  &.abmd-rounded {
+    @include radius(6px);
+  }
+  &.abmd-pill {
+    @include radius(200px);
+  }
+  &.abmd-circle {
+    @include radius(100%);
+  }
+
+  // Sizes
+  &.abmd-tiny {
+    font-size: 9px;
+  }
+  &.abmd-small {
+    font-size: 12px;
+  }
+  &.abmd-bigger {
+    font-size: 20px;
+  }
+  &.abmd-gigantic {
+    font-size: 26px;
+    padding: 12px 25px;
+  }
+  &.abmd-colossal {
+    font-size: 35px;
+    padding: 12px 32px;
+  }
+
+  // Colors
+  &.abmd-blue {
+    color: #fff;
+    background-color: $primary-blue;
+    &:hover, &:focus, &:active {
+      background-color: $primary-blue-light
+    }
+  }
+  &.abmd-red {
+    color: #fff;
+    background-color: $primary-red;
+    &:hover, &:focus, &:active {
+      background-color: $primary-red-light
+    }
+  }
+  &.abmd-orange {
+    color: #fff;
+    background-color: $primary-orange;
+    &:hover, &:focus, &:active {
+      background-color: $primary-orange-light
+    }
+  }
+  &.abmd-yellow {
+    color: #fff;
+    background-color: $primary-yellow;
+    &:hover, &:focus, &:active {
+      background-color: $primary-yellow-light;
+    }
+  }
+  &.abmd-orange {
+    color: #fff;
+    background-color: $primary-orange;
+    &:hover, &:focus, &:active {
+      background-color: $primary-orange-light
+    }
+  }
+  &.abmd-purple {
+    color: #fff;
+    background-color: $primary-purple;
+    &:hover, &:focus, &:active {
+      background-color: $primary-purple-light;
+    }
+  }
+
+  // Fill in background
+  &.abmd-fill-left {
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid $primary-blue;
+    padding: 12px 16px;
+    position: relative;
+    overflow: hidden;
+    @include radius(50px);
+    @include transition(180ms, ease);
+    .effect {
+      width: 0;
+      height: 100%;
+      position: absolute;
+      display: flex;;
+      align-items: center;
+      justify-content: center;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background: $primary-blue;
+      overflow: hidden;
+      @include radius-all(0, 50px, 50px, 0);
+      @include transition(250ms, ease);
+      z-index: 10;
+      .effect-content {
+        font-family: $primary-font;
+        font-size: 16px;
+        color: #fff;
+        text-transform: uppercase;
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        padding: 12px 16px;
+      }
+    }
+    .main-text {
+      position: relative;
+      z-index: 5;
+    }
+    &:hover, &:focus, &:active, &.active {
+      color: #fff;
+      box-shadow: none;
+      &:not(.no-border) {
+        background-color: $primary-blue !important;
+        transition: background-color 10ms ease 245ms !important;
+      }
+      .effect {
+        width: 100%;
+      }
+    }
+
+    &.filled {
+      color: $primary-text-color;
+      text-transform: capitalize;
+      background: transparent;
+      padding: 3px 8px;
+      .effect {
+        .effect-content {
+          text-transform: capitalize;
+          color: #fff;
+          padding: 2px 8px;
+        }
+      }
+
+      &.bg-white {
+        background: #fff;
+      }
+    }
+    &.no-border {
+      color: $primary-text-color;
+      text-transform: capitalize;
+      background: transparent;
+      padding: 3px 8px;
+      border-color: transparent;
+      .effect {
+        .effect-content {
+          text-transform: capitalize;
+          color: #fff;
+          padding: 2px 8px;
+        }
+      }
+    }
+  }
+}
+
+// Fill in effect
+.abmd-border-fill {
+  font-weight: 600;
+  font-size: 16px;
+  color: $primary-text-color;
+  border: none;
+  background-color: $gray-2;
+  padding: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  @include radius(0);
+  @include transition(180ms, ease);
+  span {
+    position: relative;
+    display: block;
+    background: #fff;
+    padding: 13px 20px;
+    z-index: 20;
+    //@include radius(48px);
+  }
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: 10;
+    border: 10px solid transparent;
+    //@include radius(46px)
+  }
+  &:before {
+    top: 0;
+    left: 0;
+  }
+  &:after {
+    bottom: 0;
+    right: 0;
+  }
+
+  // Hover
+  &:hover, &:focus, &:active {
+    text-decoration: none;
+    box-shadow: none;
+    transition-delay: 400ms !important;
+    &:before, &:after {
+      width: 100%;
+      height: 100%;
+    }
+    &:before {
+      transition: width 100ms ease-in, height 100ms ease-in 100ms;
+    }
+    &:after {
+      transition: border-color 0s ease-in 200ms, width 100ms ease-in 200ms, height 100ms ease-in 300ms;
+    }
+  }
+
+  // Type
+  &.abmd-rounded {
+    @include radius(7px);
+    span {
+      @include radius(5px);
+      &:before, &:after {
+        @include radius(3px)
+      }
+    }
+  }
+  &.abmd-pill {
+    @include radius(200px);
+    span {
+      @include radius(48px);
+      &:before, &:after {
+        @include radius(46px)
+      }
+    }
+  }
+  &.abmd-circle {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    @include radius(100%);
+
+    span {
+      border-radius: 100%;
+      width: 41px;
+      height: 41px;
+      padding: 0;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    // Circles sizes
+    &.abmd-tiny {
+      width: 30px;
+      height: 30px;
+      span {
+        width: 27px;
+        height: 27px;
+      }
+    }
+    &.abmd-bigger {
+      width: 50px;
+      height: 50px;
+      span {
+        width: 45px;
+        height: 45px;
+      }
+    }
+  }
+
+  // Colors
+  &.abmd-blue {
+    &:hover, &:focus, &:active {
+      color: $primary-blue;
+      &:before {
+        border-top-color: $primary-blue;
+        border-right-color: $primary-blue;
+      }
+      &:after {
+        border-bottom-color: $primary-blue;
+        border-left-color: $primary-blue;
+      }
+    }
+  }
+  &.abmd-red {
+    &:hover, &:focus, &:active {
+      color: $primary-red;
+      &:before {
+        border-top-color: $primary-red;
+        border-right-color: $primary-red;
+      }
+      &:after {
+        border-bottom-color: $primary-red;
+        border-left-color: $primary-red;
+      }
+    }
+  }
+  &.abmd-purple {
+    &:hover, &:focus, &:active {
+      color: $primary-purple;
+      &:before {
+        border-top-color: $primary-purple;
+        border-right-color: $primary-purple;
+      }
+      &:after {
+        border-bottom-color: $primary-purple;
+        border-left-color: $primary-purple;
+      }
+    }
+  }
+  &.abmd-orange {
+    &:hover, &:focus, &:active {
+      color: $primary-orange;
+      &:before {
+        border-top-color: $primary-orange;
+        border-right-color: $primary-orange;
+      }
+      &:after {
+        border-bottom-color: $primary-orange;
+        border-left-color: $primary-orange;
+      }
+    }
+  }
+  &.abmd-yellow {
+    &:hover, &:focus, &:active {
+      color: $primary-yellow;
+      &:before {
+        border-top-color: $primary-yellow;
+        border-right-color: $primary-yellow;
+      }
+      &:after {
+        border-bottom-color: $primary-yellow;
+        border-left-color: $primary-yellow;
+      }
+    }
+  }
+
+  // Sizes
+  &.abmd-tiny {
+    font-size: 9px;
+    span {
+      padding: 10px 12px;
+    }
+  }
+  &.abmd-small {
+    font-size: 12px;
+    span {
+      padding: 12px 14px;
+    }
+  }
+  &.abmd-bigger {
+    font-size: 20px;
+    span {
+      padding: 13px 17px;
+    }
+  }
+}
+
+// Ripple effect
+.abmd-ripple {
+  font-weight: 600;
+  font-size: 16px;
+  color: $primary-text-color;
+  text-transform: uppercase;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: transparent;
+  @include radius(0);
+  @include transition(200ms, ease);
+
+  &:hover, &:focus {
+    box-shadow: none;
+    outline: none;
+    background-color: transparent;
+    &:before {
+      opacity: 1;
+    }
+  }
+  &:active {
+    box-shadow: none !important;
+    outline: none;
+    // Colors
+    &.abmd-blue {
+      background-color: $primary-blue !important;
+    }
+    &.abmd-red {
+      background-color: $primary-red !important;
+    }
+    &.abmd-purple {
+      background-color: $primary-purple !important;
+    }
+    &.abmd-orange {
+      background-color: $primary-orange !important;
+    }
+    &:after {
+      transform: scale(0, 0);
+      opacity: .2;
+      transition: 0s;
+    }
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    @include transition(200ms, ease);
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #000 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s;
+  }
+
+  // Icons
+  .fa, .material-icons, i {
+    //margin-right: 5px;
+  }
+
+  // Colors
+  &.abmd-blue {
+    color: #fff;
+    background-color: $primary-blue !important;
+  }
+  &.abmd-red {
+    color: #fff;
+    background-color: $primary-red !important;
+  }
+  &.abmd-purple {
+    color: #fff;
+    background-color: $primary-purple !important;
+  }
+  &.abmd-orange {
+    color: #fff;
+    background-color: $primary-orange !important;
+  }
+
+  // Type
+  &.abmd-rounded {
+    @include radius(6px);
+  }
+  &.abmd-pill {
+    @include radius(200px);
+  }
+  &.abmd-circle {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    @include radius(100%);
+
+    // Circles sizes
+    &.abmd-tiny {
+      width: 30px;
+      height: 30px;
+    }
+    &.abmd-bigger {
+      width: 50px;
+      height: 50px;
+    }
+    &.abmd-colossal {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  &.abmd-tiny {
+    font-weight: 500;
+    font-size: 9px;
+    &:not(.abmd-circle) {
+      padding: 10px 15px;
+    }
+  }
+  &.abmd-small {
+    font-size: 12px;
+    &:not(.abmd-circle) {
+      padding: 12px 15px;
+    }
+  }
+  &.abmd-bigger {
+    font-size: 20px;
+    &:not(.abmd-circle) {
+      padding: 20px 30px;
+    }
+  }
+  &.abmd-colossal {
+    font-size: 26px;
+    &:not(.abmd-circle) {
+      padding: 26px 50px;
+    }
+  }
+}
+
+.abmd-fill-race {
+  font-size: 14;
+  color: $primary-text-color;
+  // line-height: 1;
+  border: none;
+  box-shadow: inset 0 0 0 2px $gray-2;
+  text-align: right;
+  padding: 12px 20px;
+  // margin: 7px -1px -1px -1px;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  // @include radius(0);
+  transition: all 300ms ease;
+
+  span {
+    position: relative;
+    z-index: 10;
+    margin: 0;
+  }
+
+  &:not(:disabled) {
+    cursor: pointer
+  }
+
+  // EFFECT
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: -20px;
+    bottom: 0;
+    z-index: 5;
+    @include rotate(15deg);
+    @include transition(300ms, ease)
+  }
+  &:before {
+    width: 10px;
+    height: 60px;
+    transform: translateX(0) rotate(15deg);
+  }
+  &:after {
+    width: 0;
+    height: 160px;
+  }
+
+  // HOVER EFFECTS
+  &:hover, &:focus, &:active {
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+    // border-color: #2b343c;
+    transition: box-shadow 200ms ease 300ms;
+    &:before {
+      transform: translateX(120px) rotate(15deg);
+    }
+    &:after {
+      transition: width 300ms ease 200ms;
+      width: 130%;
+    }
+    span {
+      color: $white;
+      transition: color 300ms ease 220ms;
+    }
+  }
+
+  // Colors
+  &.abmd-blue {
+    &:before, &:after {
+      background-color: $primary-blue !important;
+    }
+  }
+  &.abmd-red {
+    &:before, &:after {
+      background-color: $primary-red !important;
+    }
+  }
+  &.abmd-purple {
+    &:before, &:after {
+      background-color: $primary-purple !important;
+    }
+  }
+  &.abmd-orange {
+    &:before, &:after {
+      background-color: $primary-orange !important;
+    }
+  }
+
+
+  // Type
+  &.abmd-rounded {
+    @include radius(6px);
+  }
+  &.abmd-pill {
+    @include radius(200px);
+  }
+  &.abmd-circle {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    @include radius(100%);
+    &:hover, &:focus, &:active {
+      &:before {
+        width: 40px;
+      }
+      &:after {
+        width: 150%;
+      }
+    }
+  }
+
+  // Sizes
+  &.abmd-tiny {
+    font-size: 9px;
+  }
+  &.abmd-small {
+    font-size: 12px;
+  }
+  &.abmd-bigger {
+    font-size: 20px;
+  }
+  &.abmd-gigantic {
+    font-size: 26px;
+    padding: 12px 25px;
+  }
+  &.abmd-colossal {
+    font-size: 35px;
+    padding: 12px 32px;
+  }
+
+}
